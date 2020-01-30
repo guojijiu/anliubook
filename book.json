@@ -1,0 +1,62 @@
+{
+    "title": "安流的GitBook",
+    "author": "安流",
+    "description": "欢迎访问安流的GitBook",
+    "language": "zh-hans",
+    "gitbook": "3.2.3",
+    "styles": {
+        "website": "./styles/website.css"
+    },
+    "structure": {
+        "readme": "README.md"
+    },
+    "links": {
+        "sidebar": {
+            "我的GitHub": "https://github.com/guojijiu/"
+        }
+    },
+    "plugins": [
+        "github",
+        "splitter",
+        "tbfed-pagefooter",
+        "anchors",
+        "expandable-chapters",
+        "ace",
+        "atoc",
+        "prism",
+        "image-captions",
+        "favicon",
+        "sectionx",
+        "redirect",
+        "code",
+        "copy-code-button",
+        "back-to-top-button",
+        "chapter-fold",
+        "-sharing", "sharing-plus",
+        "pageview-count"
+    ],
+    "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/guojijiu"
+        },
+        "sharing": {
+            "douban": false,
+            "facebook": false,
+            "google": true,
+            "pocket": false,
+            "qq": false,
+            "qzone": true,
+            "twitter": false,
+            "weibo": true,
+         "all": [
+              "douban", "facebook", "google", "instapaper", "linkedin","twitter", "weibo", 
+              "messenger","qq", "qzone","viber","whatsapp"
+          ]
+      },
+      "tbfed-pagefooter": {
+        "copyright":"Copyright &copy anliu.life 2019",
+        "modify_label": "该文件修订时间：",
+        "modify_format": "YYYY-MM-DD HH:mm:ss"
+    }
+    }
+}

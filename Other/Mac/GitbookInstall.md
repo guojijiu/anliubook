@@ -10,29 +10,48 @@ sudo npm install gitbook -g
 sudo npm install -g gitbook-cli
 ```
 4. 检测是否安装成功 v 大写
+```
 gitbook -V
 gitbook -version
+```
 5. 更新 gitbook 命令行工具
+```
 sudo npm update gitbook-cli -g
+```
 6. 卸载 GitBook 命令
+```
 sudo npm uninstall gitbook-cli -g
+```
 7. 查看安装位置
+```
 which gitbook
-8. 安装 gitboot editor,方便编辑书籍
-https://legacy.gitbook.com/editor/osx
+```
+8. 安装 [gitboot editor](https://legacy.gitbook.com/editor/osx),方便编辑书籍
 9. 将安装的calibre放在应用程序中,执行
+```
 sudo ln -s /Applications/calibre.app/Contents/MacOS/ebook-convert /usr/local/bin
+```
 10. 创建 mygitbook 文件夹，作为第一本书,并切换到这个文件夹下面
+```
 mkdir mygitbook && cd mygitbook
+```
 11. 目录建好以后在根目录下执行命令,只支持2级目录：
+```
 gitbook init
+```
 12. 编写 gitbook 内容,重新编译
+```
 gitbook build
+```
 13. 在根目录执行命令,启动服务：
+```
 gitbook serve
+```
 14. 访问,用浏览器打开 http://localhost:4000/ 或 http://127.0.0.1:4000/ 查看显示书籍的效果。结束预览 ctrl+c
 15. 生成电子书,依赖于Calibre
+```
 gitbook mobi ./ ./MyFirstBook.mobi
+```
 
 #关联github
 1. 在github上创建对应的项目，然后将本地的git公钥上传到github上，具体如何创建，如果不清楚，百度即可；
@@ -40,7 +59,7 @@ gitbook mobi ./ ./MyFirstBook.mobi
 ```
 git init
 git add .
-git commit -a "first commit"
+git commit -m "first commit"
 git remote add orign git@github.com:guojijiu/anliubook.git
 git push -u orign master
 ```
