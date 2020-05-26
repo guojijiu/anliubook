@@ -1,17 +1,25 @@
-#docker常用命令
+# docker常用命令
+
 1. 安装php容器
+
 ```
-docker run -p 9000:9000 --name  php -v /docker/www/laravel:/www -v /docker/php/conf:/usr/local/etc/php -v /docker/php/log:/phplogs   -d php:7.4-fpm
+docker run -p 9000:9000 --privileged=true --name php7.4 -v /docker/www:/www -v /docker/php/conf:/usr/local/etc/php -v /docker/php/log:/phplogs -d php:7.4-fpm
 ```
+
 2. 安装nginx容器
+
 ```
-docker run -p 80:80 --name nginx -v /docker/nginx/conf/nginx.conf:/etc/nginx/nginx.conf -v /docker/nginx/conf/conf.d/:/etc/nginx/conf.d/ -v /docker/www:/www -v /docker/nginx/log:/var/log/nginx -v /docker/nginx/log:/wwwlogs -d nginx
+docker run -p 80:80 --privileged=true --name nginx -v /docker/nginx/conf/nginx.conf:/etc/nginx/nginx.conf -v /docker/nginx/conf/conf.d/:/etc/nginx/conf.d/ -v /docker/www:/web -v /docker/nginx/log:/var/log/nginx -v /docker/nginx/log:/wwwlogs -d nginx
 ```
+
 3. 安装mysql容器
+
 ```
 docker run --name mysql5.7 -p 3306:3306 --privileged=true -v /docker/mysql/conf:/etc/mysql/conf.d -v /docker/mysql/log:/logs -v /docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7
 ```
+
 登录mysql获取权限：
+
 ```
 docker exec -it mysql5.7 bash
 mysql -uroot -p
@@ -36,11 +44,15 @@ db.auth('admin', '123456')
 ```
 docker run -itd -v /docker/python/app:/usr/src/python/app -w /usr/src/python/app --name=python3.8 -d python:3.8
 ```
-. 查看容器ip
+7. 查看容器ip
 ```
 docker inspect php |grep '"IPAddress"'
 ```
-. 查看容器日志
+8. 查看容器日志
 ```
 docker inspect php |grep '"IPAddress"'
+```
+9. 获取所有的容器IP
+```
+docker inspect -f '{{.Name}} - {{.NetworkSettings.IPAddress }}' $(docker ps -aq)
 ```
