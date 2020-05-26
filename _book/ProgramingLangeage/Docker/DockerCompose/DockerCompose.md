@@ -78,6 +78,7 @@ services:
         build: ./rabbitmq
         ports:
             - 15672:15672
+            - 5672:5672
         environment:
             RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
             RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS}
