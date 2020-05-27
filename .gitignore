@@ -1,4 +1,4 @@
-#!.gitignore
-#_book/**
-#.vscode/**
-#node_modules/**
+!.gitignore
+_book/**
+.vscode/**
+node_modules/**
