@@ -48,10 +48,6 @@ docker run -itd -v /docker/python/app:/usr/src/python/app -w /usr/src/python/app
 ```
 docker inspect php |grep '"IPAddress"'
 ```
-8. 获取所有的容器IP
-```
-docker inspect -f '{{.Name}} - {{.NetworkSettings.IPAddress }}' $(docker ps -aq)
-```
 
 ```
 docker-compose build 构建项目中的镜像，–force-rm：删除构建过程中的临时容器；–no-cache：不使用缓存构建；–pull：获取最新版本的镜像
