@@ -3,13 +3,13 @@
 1. 安装php容器
 
 ```
-docker run -p 9000:9000 --privileged=true --name php7.4 -v /docker/www:/www -v /docker/php/conf:/usr/local/etc/php -v /docker/php/log:/phplogs -d php:7.4-fpm
+docker run --name php-fpm -v /docker/www:/var/www/html -d php:7.4-fpm
 ```
 
 2. 安装nginx容器
 
 ```
-docker run -p 80:80 --privileged=true --name nginx -v /docker/nginx/conf/nginx.conf:/etc/nginx/nginx.conf -v /docker/nginx/conf/conf.d/:/etc/nginx/conf.d/ -v /docker/www:/web -v /docker/nginx/log:/var/log/nginx -v /docker/nginx/log:/wwwlogs -d nginx
+docker run --name nginx -p 80:80 -d -v /docker/www:/usr/share/nginx/html -v /docker/nginx/conf:/etc/nginx/conf -v /docker/nginx/conf/conf.d:/etc/nginx/conf.d -v /docker/nginx/log:/var/log/nginx --link php-fpm:php nginx
 ```
 
 3. 安装mysql容器
@@ -48,11 +48,22 @@ docker run -itd -v /docker/python/app:/usr/src/python/app -w /usr/src/python/app
 ```
 docker inspect php |grep '"IPAddress"'
 ```
-8. 查看容器日志
-```
-docker inspect php |grep '"IPAddress"'
-```
-9. 获取所有的容器IP
+8. 获取所有的容器IP
 ```
 docker inspect -f '{{.Name}} - {{.NetworkSettings.IPAddress }}' $(docker ps -aq)
+```
+
+```
+docker-compose build 构建项目中的镜像，–force-rm：删除构建过程中的临时容器；–no-cache：不使用缓存构建；–pull：获取最新版本的镜像
+docker-compose up -d 构建镜像、创建服务和启动项目，-d表示后台运行
+docker-compose run ubuntu ls -d 指定服务上运行一个命令，-d表示后台运行
+docker-compose logs 查看服务容器输出日志
+docker-compose ps 列出项目中所有的容器
+docker-compose pause [service_name] 暂停一个服务容器
+docker-compose unpause [service_name] 恢复已暂停的一个服务容器
+docker-compose restart 重启项目中的所有服务容器（也可以指定具体的服务）
+docker-compose stop 停止运行项目中的所有服务容器（也可以指定具体的服务）
+docker-compose start 启动已经停止项目中的所有服务容器（也可以指定具体的服务）
+docker-compose rm 删除项目中的所有服务容器（也可以指定具体的服务），-f：强制删除（包含运行的）
+docker-compose kill 强制停止项目中的所有服务容器（也可以指定具体的服务）
 ```
