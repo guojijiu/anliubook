@@ -5,9 +5,11 @@
 * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
 ```
 如果是通过php启动，这是计划任务执行的命令，内容说明是指向你的项目，并且执行schedule:run，
+```
 * * * * * ：每分钟执行一次
 /dev/null：输出到空设备，表示丢掉输出信息。
 2>&1：将输出到标准错误的信息输出到标准输出设备(通常是屏幕)
+```
 2.
 ```
 namespace Illuminate\Console\Scheduling;class ScheduleRunCommand extends Command
