@@ -89,4 +89,12 @@ services:
         restart: always
         #network_mode: "host"
         container_name: rabbitmq3
+    golang1.14:
+        build: ./golang
+        ports:
+            - 8088:8088
+        volumes:
+            - "${PWD}/www/go:/go"
+        tty: true
+        container_name: golang1.14
 ```
