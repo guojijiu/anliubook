@@ -1,3 +1,5 @@
+###dockerComposer
+```
 version: '3.2'
 services:
     php7.4-fpm:
@@ -87,3 +89,4 @@ services:
         restart: always
         #network_mode: "host"
         container_name: rabbitmq3
+```
