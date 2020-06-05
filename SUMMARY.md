@@ -26,7 +26,7 @@
     * [Linux](ProgramingLangeage/Linux/README.md)
         * [常用命令](ProgramingLangeage/Linux/CommonCommand.md)
     * [Mysql](ProgramingLangeage/Mysql/README.md)
-        * [常用命令](ProgramingLangeage/Mysql/ChartSet.md)
+        * [字符集问题](ProgramingLangeage/Mysql/ChartSet.md)
 * [其他](Other/README.md)
     * [Mac](Other/Mac/README.md)
 
