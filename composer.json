@@ -1,0 +1,11 @@
+{
+    "name": "liuwei/anliubook",
+    "description": "gitbook",
+    "authors": [
+        {
+            "name": "刘伟",
+            "email": "l644522319@gmail.com"
+        }
+    ],
+    "require": {}
+}
