@@ -29,4 +29,5 @@
         * [字符集问题](ProgramingLangeage/Mysql/ChartSet.md)
 * [其他](Other/README.md)
     * [Mac](Other/Mac/README.md)
+    * [frp](Other/Frp.md)
 
