@@ -65,13 +65,13 @@ services:
         ports:
             - 27017:27017
         environment:
-        #    MONGO_INITDB_DATABASE: lwadmin
+            MONGO_INITDB_DATABASE: lwadmin
             MONGO_INITDB_ROOT_USERNAME: anliu
             MONGO_INITDB_ROOT_PASSWORD: dG&UaUpjPo81XMsC
         volumes:
         #    - "${PWD}/mongo/init/:/docker-entrypoint-initdb.d"
             - "${PWD}/mongo/db:/var/lib/mongodb"
-            - "${PWD}/mongo/conf/mongod.conf:/etc/mongod.conf"
+            - "${PWD}/mongo/conf/mongod.conf:/etc/mongod.conf" // 需要先连到mongo4的虚拟机内，获取到/etc/mongod.conf的配置文件
             - "${PWD}/mongo/logs:/var/log/mongodb"
         command: mongod -f /etc/mongod.conf
         restart: always
