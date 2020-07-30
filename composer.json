@@ -1,6 +1,7 @@
 {
     "name": "liuwei/anliubook",
     "description": "gitbook",
+    "license": "MIT",
     "authors": [
         {
             "name": "刘伟",
