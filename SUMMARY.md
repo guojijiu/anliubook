@@ -21,6 +21,7 @@
     * [Golang](ProgramingLangeage/Golang/README.md)
         * [了解](ProgramingLangeage/Golang/Basics.md)
         * [参考资料](ProgramingLangeage/Golang/Resource.md)
+        * [异常错误中间件](ProgramingLangeage/Golang/PanicException.md)
     * [PHP](ProgramingLangeage/PHP/README.md)
         * [laravel](ProgramingLangeage/PHP/Laravel/README.md)
             * [计划任务源码分析](ProgramingLangeage/PHP/Laravel/Commmand.md)
