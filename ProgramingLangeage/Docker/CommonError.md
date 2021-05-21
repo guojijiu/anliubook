@@ -36,3 +36,9 @@ server {
     }
 }
 ```
+
+问题：
+gitlab迁移从a到b报错Permission denied @ rb_sysopen - /opt/gitlab/embedded/service/gitlab-rails/log/application.log
+解决：
+将opt目录下的gitlab目录迁移过去
+

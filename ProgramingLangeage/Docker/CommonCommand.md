@@ -63,3 +63,9 @@ docker-compose start 启动已经停止项目中的所有服务容器（也可�
 docker-compose rm 删除项目中的所有服务容器（也可以指定具体的服务），-f：强制删除（包含运行的）
 docker-compose kill 强制停止项目中的所有服务容器（也可以指定具体的服务）
 ```
+
+清空日志
+```
+1. 查看日志所在位置：docker inspect --format='{{.LogPath}}' <container_name>
+2. 清空日志：cat /dev/null > $log
+```

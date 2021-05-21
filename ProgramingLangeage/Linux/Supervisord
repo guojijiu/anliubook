@@ -1,0 +1,27 @@
+1. 在/etc/supervisord.d，添加cloud_platform_redis.conf
+[program:cloud_platform_redis]
+
+process_name=%(program_name)s_%(process_num)02d
+
+command=php /var/www/cloud_platform/artisan queue:work --sleep=3 --tries=3
+//自动开启 
+autostart=true
+//自动重启
+autorestart=true
+//启动进程的用户
+user=deploy
+//进程数量
+numprocs=8
+//日志路径，确保路径存在
+stdout_logfile=/var/www/cloud_platform/storage/logs/worker.log
+
+2.执行以下命令启动进程监控
+sudo supervisorctl reread
+
+sudo supervisorctl update
+
+sudo supervisorctl restart cloud_platform_redis:*
+
+3.使用supervisorctl status查看当前进程状态
+
+4.修改内容后执行supervisorctl reload 
