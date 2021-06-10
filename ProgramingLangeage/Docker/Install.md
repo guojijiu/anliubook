@@ -1,6 +1,7 @@
 ### 安装docker-ce
 ### 以下操作均为root
 ### 参考地址：https://www.jianshu.com/p/7d9ff93bc89e
+### 官方地址：https://docs.docker.com/engine/install/centos/
 1. 升级内核
 ```
 yum -y update

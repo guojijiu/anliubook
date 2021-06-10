@@ -35,3 +35,10 @@ fg、bg、jobs、&、ctrl + z都是跟系统任务有关的，虽然现在基本
 4. cp .bash_logout /home/liuwei/
 5. cp .bash_profile /home/liuwei/
 6. cp .bashrc /home/liuwei/
+
+### 服务器问题
+问题：
+1.安装依赖包报错：Fatal error: Allowed memory size of 2147483648 bytes exhausted (tried to allocate 67108864 bytes) in phar:///usr/local/bin/composer/src/Composer/DependencyResolver/Solver.php on line 223
+解决：
+增加memory_limit参数
+php -d memory_limit=3G /usr/local/bin/composer require --dev zircote/swagger-php -vvv
