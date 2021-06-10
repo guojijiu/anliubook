@@ -26,3 +26,12 @@ fg、bg、jobs、&、ctrl + z都是跟系统任务有关的，虽然现在基本
 1.ps -ef|grep redis，得到了进程号 xxxx，
 
 2.ls -l /proc/xxxx/cwd
+
+### 登陆显示用户信息为：bash-4.2
+解决：
+1. mkdir /home/liuwei
+2. chmod 700 /home/liuwei
+3. cd /etc/skel/
+4. cp .bash_logout /home/liuwei/
+5. cp .bash_profile /home/liuwei/
+6. cp .bashrc /home/liuwei/
