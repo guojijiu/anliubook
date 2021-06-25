@@ -3,7 +3,7 @@
 version: '3.2'
 services:
     gitlab:
-        image: gitlab/gitlab-ce
+        image: gitlab/gitlab-ce:13.10.0-ce.0
         container_name: gitlab
         restart: always
         environment:
