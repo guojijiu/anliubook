@@ -12,9 +12,11 @@ wget https://www.php.net/distributions/php-7.4.10.tar.gz
 
 4. cd php-7.4.10
 
-5. ./configure --prefix=/usr/local/php --with-config-file-path=/etc --with-fpm-user=deploy --with-fpm-group=deploy --with-curl --with-freetype-dir --enable-gd --with-gettext --with-iconv-dir --with-kerberos --with-libdir=lib64 --with-libxml-dir --with-mysqli --with-openssl --with-pcre-regex --with-pdo-mysql --with-pdo-sqlite --with-pear --with-png-dir --with-jpeg-dir --with-xmlrpc --with-xsl --with-zlib --with-bz2 --with-mhash --enable-fpm --enable-bcmath --enable-libxml --enable-inline-optimization --enable-mbregex --enable-mbstring --enable-opcache --enable-pcntl --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-sysvshm --enable-xml --enable-zip --enable-fpm
+### 安装之前需要处理zip，gd库的问题，重新编译，这个作为参考
 
-### --with-freetype-dir 加如配置，安装gd扩展
+5. ./configure --prefix=/usr/local/php --with-config-file-path=/etc --with-fpm-user=deploy --with-fpm-group=deploy --with-curl --enable-gd --with-jpeg --with-freetype --with-gettext --with-iconv-dir --with-kerberos --with-libdir=lib64  --with-mysqli --with-openssl --with-pdo-mysql --with-pdo-sqlite --with-pear --with-xmlrpc --with-xsl --with-zlib --with-bz2 --with-mhash --enable-fpm --enable-bcmath --with-libxml --enable-inline-optimization --enable-mbregex --enable-mbstring --enable-opcache --enable-pcntl --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-sysvshm --enable-xml --with-zip --enable-fpm
+
+### --with-freetype 加如配置，安装gd扩展
 
 6. make && make install
 
