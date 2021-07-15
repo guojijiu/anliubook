@@ -27,6 +27,9 @@ sudo supervisorctl restart cloud_platform_redis:*
 4.修改内容后执行sudo supervisorctl reload 
 
 
+# 如果任务无法执行，关掉supervisord，单独启动，再次尝试
+1. 通过比对成功的qsub和没有的qsub，确定文件目录未指定，导致无法读取内容，修改参数，directory=，改变配置
+
 ### supervisord报错error: <class 'socket.error'>, [Errno 2] No such file or directory: file: /usr/lib64/python2.7/socket.py line: 224
 解决：
 sudo /usr/bin/python2 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf

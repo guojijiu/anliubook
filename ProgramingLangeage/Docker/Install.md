@@ -20,6 +20,7 @@ yum install -y yum-utils device-mapper-persistent-data lvm2
 4. 添加yum的源
 ```
  添加国内源：yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+ 或者
  添加官方源：yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 ```
 
@@ -49,11 +50,11 @@ systemctl enable --now docker
 
 ### 安装Docker-Compose
 
-1. 访问https://github.com/docker/compose/releases/latest，获得最新的docker-compose版本
+1. 获得最新的docker-compose版本：https://github.com/docker/compose/releases/latest，
 
-2. 下载最新版本的 docker-compose 到 /usr/bin 目录下
+2. 下载最新版本的 docker-compose，版本号1.23.2替换为想要的版本， 到 /usr/bin 目录下
 ```
-curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` -o /usr/bin/docker-compose
+curl -L https://github.com/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` -o /usr/bin/docker-compose
 ```
 
 3. 给 docker-compose 授权

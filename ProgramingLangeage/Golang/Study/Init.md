@@ -23,5 +23,5 @@ go mod download
 ```
 7. 配置Goland IDE
 ```
-Goland->Preferences->Go Modules->勾选Enable Go modules integration
+Goland->Preferences->Go->Go Modules->勾选Enable Go modules integration
 ```
