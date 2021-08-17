@@ -9,3 +9,11 @@
 qstat -g c
 qstat -Q
 
+### qstat -f 查看状态为E
+解决办法：使用root重启sge
+/opt/sge/default/common/sgemaster restart
+状态说明：
+a： 负载超限了，开启警报alarm。
+A： 超限暂替，开启警报Alarm。
+E： 队列有错误，不能提供任务提交服务了。
+au：主机和SGE系统连接中断，此时负载状态为-NA-。需要重启相应服务器的sgeexecd命令。

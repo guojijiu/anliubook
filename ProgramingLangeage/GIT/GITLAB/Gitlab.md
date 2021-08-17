@@ -30,3 +30,14 @@ UPDATE application_settings SET encrypted_ci_jwt_signing_key = null;
 -- Clear runner tokens
 UPDATE ci_runners SET token = null, token_encrypted = null;
 
+
+### – PG::DataCorrupted: ERROR: could not read block 3 in file "base/16386/48135": read only 0 of 8192 bytes
+解决方案：(参考https://blog.csdn.net/pcn01/article/details/107187054/)
+1. 登录gitlab容器
+2. 查看配置信息cat /var/opt/gitlab/gitlab-rails/etc/database.yml
+3. 登录数据库su - gitlab-psql
+4. 连接数据库psql -h /var/opt/gitlab/postgresql -d gitlabhq_production
+5. 查看损坏的id：select relname,relkind from pg_class where relfilenode=2702（根据报错选择）;
+6. 修复：set zero_damaged_pages = on;
+7. 修复：reindex index pg_trigger_oid_index;
+8. 重新fork项即可。
