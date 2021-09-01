@@ -80,3 +80,9 @@ initctl 是守护进程控制工具，管理员可以与 Upstart 守护进程进
 -t：显示内存总和列；
 -V：显示版本信息；
 -s <间隔秒速>：将以动态的形式持续观察内存使用情况；
+
+### 两个加密服务器之间传输文件，报错：ssh: connect to host 12.2.2.2 port 3222: Connection timed out，lost connection
+解决方案：
+保证两个服务器的文件权限
+chmod 600 authorized_keys
+chmod 700 ~/.ssh
