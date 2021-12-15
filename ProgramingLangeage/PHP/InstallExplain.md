@@ -1,12 +1,14 @@
---with-freetype-dir   打开对freetype字体库的支持 
+### 7.4编译安装说明
 
---with-jpeg-dir   打开对jpeg图片的支持 
+--with-freetype   打开对freetype字体库的支持 
 
---with-png-dir   打开对png图片的支持 
+--with-jpeg   打开对jpeg图片的支持 
 
---with-zlib-dir   打开zlib库的支持，用于http压缩传输
+--with-webp
 
---with-libxml-dir   打开libxml2库的支持
+--with-xpm
+
+--with-libxml
 
 --disable-rpath    关闭额外的运行库文件 
 
@@ -30,7 +32,7 @@
 
 --with-mhash                     mhash算法扩展
 
---with-gd    打开gd库的支持 
+--enable-gd    打开gd库的支持 
 
 --enable-gd-native-ttf   支持TrueType字符串函数库
 
@@ -42,7 +44,7 @@
 
 --with-xmlrpc    打开xml-rpc的c语言 
 
---enable-zip   打开对zip的支持 
+--with-zip   打开对zip的支持 
 
 --enable-ftp   打开ftp的支持 
 
@@ -101,3 +103,54 @@ CGI方式安装才用的参数
 --enable-wddx
 
 --enable-soap
+
+
+PHP7.4 一些变更
+CURL:
+--with-curl no longer accepts a directory.
+Enchant:
+--with-enchant no longer accepts a directory.
+FPM:
+--with-fpm-systemd now uses only pkg-config for libsystem checks. The libsystemd minimum required version is 209.
+GD:
+--with-gd becomes --enable-gd (whether to enable the extension at all) and --with-external-gd (to opt into using an external libgd, rather than the bundled one).
+--with-png-dir has been removed. libpng is required.
+--with-zlib-dir has been removed. zlib is required.
+--with-freetype-dir becomes --with-freetype
+--with-jpeg-dir becomes --with-jpeg
+--with-webp-dir becomes --with-webp
+--with-xpm-dir becomes --with-xpm
+IMAP:
+--with-kerberos-systemd no longer accepts a directory.
+Intl:
+--with-icu-dir has been removed. If --enable-intl is passed, then libicu is always required.
+LDAP:
+--with-ldap-sasl no longer accepts a directory.
+Libxml:
+--with-libxml-dir has been removed.
+--enable-libxml becomes --with-libxml.
+--with-libexpat-dir has been renamed to --with-expat and no longer accepts a directory.
+Litespeed:
+--with-litespeed becomes --enable-litespeed.
+Mbstring:
+--with-onig has been removed. Unless --disable-mbregex has been passed, libonig is required.
+ODBC:
+--with-iodbc no longer accepts a directory.
+--with-unixODBC without a directory now uses pkg-config (preferred). Directory is still accepted for old versions without libodbc.pc.
+OpenSSL:
+--with-openssl no longer accepts a directory.
+PCRE:
+--with-pcre-regex has been removed. Instead --with-external-pcre is provided to opt into using an external PCRE library, rather than the bundled one.
+PDO_SQLite:
+--with-pdo-sqlite no longer accepts a directory.
+Readline:
+--with-libedit no longer accepts a directory.
+Sodium:
+--with-sodium no longer accepts a directory.
+SQLite3:
+--with-sqlite3 no longer accepts a directory.
+XSL:
+--with-xsl no longer accepts a directory.
+Zip:
+--with-libzip has been removed.
+--enable-zip becomes --with-zip.

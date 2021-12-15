@@ -86,3 +86,6 @@ initctl 是守护进程控制工具，管理员可以与 Upstart 守护进程进
 保证两个服务器的文件权限
 chmod 600 authorized_keys
 chmod 700 ~/.ssh
+
+### rsync
+rsync -azP -v -e 'ssh -p 123' /a/b/ user1@111.22.22.33:/c/d/

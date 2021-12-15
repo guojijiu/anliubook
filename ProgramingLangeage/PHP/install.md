@@ -1,5 +1,23 @@
 ### 编译安装php
 
+# 卸载之前的php
+rpm -qa | grep php
+php70w-common-7.0.33-1.w7.x86_64
+php70w-devel-7.0.33-1.w7.x86_64
+php70w-7.0.33-1.w7.x86_64
+php70w-cli-7.0.33-1.w7.x86_64
+一个一个卸载
+
+rpm -e php70w-7.0.33-1.w7.x86_64
+rpm -e php70w-devel-7.0.33-1.w7.x86_64
+rpm -e php70w-cli-7.0.33-1.w7.x86_64
+rpm -e php70w-common-7.0.33-1.w7.x86_64
+  补充一下  如果卸载的时候提示存在依赖关系  
+
+rpm -e --nodeps    价格 --modeps 即可 
+
+# 编译安装
+
 1. 前置工作
 yum -y install epel-release yum-utils
 yum config-manager --set-enabled PowerTools
@@ -12,11 +30,18 @@ wget https://www.php.net/distributions/php-7.4.10.tar.gz
 
 4. cd php-7.4.10
 
-### 安装之前需要处理zip，gd库的问题，重新编译，这个作为参考
+5. ./configure --prefix=/usr/local/php --with-config-file-path=/etc --with-fpm-user=deploy --with-fpm-group=deploy --with-curl --enable-gd --with-jpeg --with-freetype --with-gettext --with-iconv-dir --with-kerberos --with-libdir=lib64  --with-mysqli --with-openssl --enable-pdo --with-pdo-mysql --with-pdo-sqlite --with-pear --with-xmlrpc --with-xsl --with-zlib --with-bz2 --with-mhash --enable-fpm --enable-bcmath --with-libxml --enable-inline-optimization --enable-mbregex --enable-mbstring --enable-opcache --enable-pcntl --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-sysvshm --enable-xml --with-zip
 
-5. ./configure --prefix=/usr/local/php --with-config-file-path=/etc --with-fpm-user=deploy --with-fpm-group=deploy --with-curl --enable-gd --with-jpeg --with-freetype --with-gettext --with-iconv-dir --with-kerberos --with-libdir=lib64  --with-mysqli --with-openssl --with-pdo-mysql --with-pdo-sqlite --with-pear --with-xmlrpc --with-xsl --with-zlib --with-bz2 --with-mhash --enable-fpm --enable-bcmath --with-libxml --enable-inline-optimization --enable-mbregex --enable-mbstring --enable-opcache --enable-pcntl --enable-shmop --enable-soap --enable-sockets --enable-sysvsem --enable-sysvshm --enable-xml --with-zip --enable-fpm
-
-### --with-freetype 加如配置，安装gd扩展
+### 报错Alternatively, you may set the environment variables LIBZIP_CFLAGSand LIBZIP_LIBS to avoid the need to call pkg-config.（参考https://www.cnblogs.com/equation/p/12352596.html）
+解决方案：
+yum remove libzip libzip-devel
+wget https://hqidi.com/big/libzip-1.2.0.tar.gz
+tar -zxvf libzip-1.2.0.tar.gz
+cd libzip-1.2.0
+./configure
+make && make install
+在你configure的会话窗口直接输入如下内容：
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig/"
 
 6. make && make install
 
