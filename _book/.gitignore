@@ -1,0 +1,5 @@
+!.gitignore
+_book/**
+.vscode/**
+node_modules/**
+/vendor/
