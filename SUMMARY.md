@@ -63,6 +63,8 @@
         * [qsub](ProgramingLangeage/Linux/qsub.md)
         * [Supervisord](ProgramingLangeage/Linux/Supervisord.md)
         * [安装jenkins](ProgramingLangeage/Linux/InstallJenkins.md)
+        * [Elasticsearch](ProgramingLangeage/Linux/Elasticsearch.md)
+        * [Prometheus](ProgramingLangeage/Linux/Prometheus.md)
         * [碎片知识](ProgramingLangeage/Linux/Fragmentknowledge.md)
     * [Mongodb](ProgramingLangeage/Mongodb/README.md)
         * [常见问题](ProgramingLangeage/Mongodb/Mongo.md)

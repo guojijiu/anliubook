@@ -89,3 +89,38 @@ chmod 700 ~/.ssh
 
 ### rsync
 rsync -azP -v -e 'ssh -p 123' /a/b/ user1@111.22.22.33:/c/d/
+
+### >，<，>>
+```
+>：重定向输出
+<：重定向输入
+>>：在文件末尾添加
+```
+
+### base常用
+```
+ctrl-w：删除你键入的最后一个单词；
+ctrl-u：可以删除行内光标所在位置之前的内容；
+ctrl-b和ctrl-f：可以以单词为单位移动光标；
+ctrl-a：可以将光标移至行首；
+ctrl-e：可以将光标移至行尾；
+ctrl-k：可以删除光标至行尾的所有内容；
+ctrl-l：清屏
+```
+
+### ~/.ssh/config优化，防止特定网络环境下连接断开、压缩数据、多通道等选项
+```
+TCPKeepAlive=yes
+ServerAliveInterval=15
+ServerAliveCountMax=6
+Compression=yes
+ControlMaster auto
+ControlPath /tmp/%r@%h:%p
+ControlPersist yes
+```
+
+### proc，调试正在出现的问题的时候有时会效果惊人
+```
+/proc/cpuinfo，/proc/meminfo，/proc/cmdline，/proc/xxx/cwd，/proc/xxx/exe，/proc/xxx/fd/，/proc/xxx/smaps
+（这里的 xxx 表示进程的 id 或 pid）
+```
