@@ -1,4 +1,5 @@
 1. 在/etc/supervisord.d，添加cloud_platform_redis.conf
+```
 [program:cloud_platform_redis]
 
 process_name=%(program_name)s_%(process_num)02d
@@ -14,6 +15,7 @@ user=deploy
 numprocs=8
 //日志路径，确保路径存在
 stdout_logfile=/var/www/cloud_platform/storage/logs/worker.log
+```
 
 2.执行以下命令启动进程监控
 sudo supervisorctl reread
