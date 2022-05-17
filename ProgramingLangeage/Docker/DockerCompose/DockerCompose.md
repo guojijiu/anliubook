@@ -46,8 +46,8 @@ services:
         ports:
             - 6375:6379
         volumes:
-            - "./redis/5.0/data:/var/lib/redis"
-            - "./redis/5.0/logs:/var/log/redis"
+            - "./redis/5.0/data:/data"
+            - "./redis/5.0/logs:/var/log/redis" # 修改/redis/5.0/logs的权限为可读可写
             - "./redis/5.0/conf:/usr/local/etc/redis"    #redis.conf从官网下载http://www.redis.cn/download.html
         command: redis-server /usr/local/etc/redis/redis.conf
         restart: always
