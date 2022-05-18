@@ -13,6 +13,8 @@ autorestart=true
 user=deploy
 //进程数量
 numprocs=8
+// 配置项目根目录，如果报错，可以隐藏
+directory=/www/cloud_platform/api
 //日志路径，确保路径存在
 stdout_logfile=/var/www/cloud_platform/storage/logs/worker.log
 ```
@@ -41,6 +43,11 @@ sudo /usr/bin/python2 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 在/etc/supervisord.conf，查看配置项是否正确
 ;[include]
 files = /etc/supervisord.conf.d/*.conf
+
+# Error: Another program is already listening on a port that one of our HTTP servers is configured to use.  Shut this program down first before starting supervisord.
+解决：
+find / -name supervisor.sock
+unlink /name/supervisor.sock
 
 ### 常用命令
 ```

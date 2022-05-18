@@ -66,6 +66,9 @@ systemctl start php-fpm
 systemctl enable php-fpm
 
 10. 安装redis扩展
+pecl channel-update pecl.php.net
+pecl install redis
+或者
 wget http://pecl.php.net/get/redis-4.0.2.tgz
 tar -zxvf redis-4.0.2.tgz
 cd redis-4.0.2
@@ -78,3 +81,16 @@ make && make install
     systemctl restart nginx.service
 # 重启php-fpm 
     systemctl restart php-fpm.service
+
+# 安装composer
+
+1. 下载composer
+php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
+2. 设置环境变量；
+mv composer.phar /usr/local/bin/composer
+3. 修改权限
+chmod -R 777 /usr/local/bin/composer
+4. 修改源
+composer config -g repo.packagist composer mirrors.aliyun.com/composer/
+5. 查看全局配置
+composer config -gl

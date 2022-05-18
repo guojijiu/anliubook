@@ -81,6 +81,7 @@
         * [优化](ProgramingLangeage/Mysql/Optimization.md)
         * [索引](ProgramingLangeage/Mysql/Index.md)
     * [Nginx](ProgramingLangeage/Nginx/README.md)
+        * [安装](ProgramingLangeage/Nginx/Install.md)
         * [SSL](ProgramingLangeage/Nginx/SSL.md)
         * [Problem](ProgramingLangeage/Nginx/Problem.md)
         * [碎片知识](ProgramingLangeage/Nginx/Fragmentknowledge.md)
