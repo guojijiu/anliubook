@@ -74,6 +74,7 @@
         * [常见问题](ProgramingLangeage/Mongodb/Mongo.md)
     * [Mysql](ProgramingLangeage/Mysql/README.md)
         * [字符集](ProgramingLangeage/Mysql/ChartSet.md)
+        * [安装](ProgramingLangeage/Mysql/Install.md)
         * [mysql_dump](ProgramingLangeage/Mysql/mysql_dump.md)
         * [资料](ProgramingLangeage/Mysql/Resource.md)
         * [错误](ProgramingLangeage/Mysql/CommonErr.md)
