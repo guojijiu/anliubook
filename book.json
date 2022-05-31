@@ -16,23 +16,21 @@
         }
     },
     "plugins": [
+        "-sharing", 
+        "-search",
+        "-lunr",
+        "-highlight",
         "github",
         "splitter",
         "tbfed-pagefooter",
         "anchors",
         "expandable-chapters",
-        "ace",
-        "atoc",
-        "prism",
-        "image-captions",
-        "favicon",
         "sectionx",
-        "redirect",
-        "code",
         "copy-code-button",
-        "back-to-top-button",
         "chapter-fold",
-        "-sharing", "sharing-plus",
+        "sharing-plus",
+        "search-plus",
+        "3-ba",
         "pageview-count"
     ],
     "pluginsConfig": {
@@ -57,6 +55,9 @@
         "copyright":"Copyright &copy anliu.life 2019",
         "modify_label": "该文件修订时间：",
         "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "3-ba": {
+        "token": "228b0e09131babf7c8d8d9aed82e3d3a"
     }
     }
 }
