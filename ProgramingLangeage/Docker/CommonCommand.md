@@ -69,3 +69,26 @@ docker-compose kill 强制停止项目中的所有服务容器（也可以指定
 1. 查看日志所在位置：docker inspect --format='{{.LogPath}}' <container_name>
 2. 清空日志：cat /dev/null > $log
 ```
+
+非root用户使用docker命令
+```
+方案一：（验证，生效）
+chmod 666 /var/run/docker.sock
+方案二：（验证，未生效）
+参考官方说明，使用 root 权限创建一个 docker 组，并将普通用户加入到该组中，然后刷新一下 docker 组使其修改生效即可：
+sudo groupadd docker			# 有则不用创建
+sudo usermod -aG docker USER	# USER 为加入 docker 组的用户
+newgrp docker					# 刷新 docker 组
+docker run hello-world			# 测试无 root 权限能否使用 docker
+```
+
+服务器与容器时区同步问题
+```
+1. 到容器里查看下时间（时区）：
+docker exec -it <容器ID> /bin/bash
+$ date
+$ exit
+2. 用宿主机的时区替换容器的时区：
+docker cp /etc/localtime <容器ID>:/etc/localtime
+3. 可以再到容器里确认下
+```

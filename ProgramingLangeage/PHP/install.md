@@ -85,7 +85,7 @@ make && make install
 # 安装composer
 
 1. 下载composer
-php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
+curl -sS https://getcomposer.org/installer | php
 2. 设置环境变量；
 mv composer.phar /usr/local/bin/composer
 3. 修改权限

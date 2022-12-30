@@ -12,7 +12,7 @@
     3). 执行systemctl daemon-reexec；
     4). 启动systemctl start nginx.service；
     5). 设置为开机自启：systemctl enable nginx；
-    6). 查看是否设置开机自启：systemctl is-enabled ngin；
+    6). 查看是否设置开机自启：systemctl is-enabled nginx；
 
 ### nginx.service
 ```

@@ -1,9 +1,13 @@
-###常用命令
+### 常用命令
 
-####arch
-#####说明
+#### arch
+
+##### 说明
+
 查看linux系统的体系结构
-#####示例
+
+##### 示例
+
 ```
 arch
 ```
@@ -23,12 +27,15 @@ fg、bg、jobs、&、ctrl + z都是跟系统任务有关的，虽然现在基本
 如果后台中有多个命令，可以用bg %jobnumber将选中的命令调出，%jobnumber是通过jobs命令查到的后台正在执行的命令的序号(不是pid)
 
 ### 查看进程所在目录
+
 1.ps -ef|grep redis，得到了进程号 xxxx，
 
 2.ls -l /proc/xxxx/cwd
 
 ### 登陆显示用户信息为：bash-4.2
+
 解决：
+
 1. mkdir /home/liuwei
 2. chmod 700 /home/liuwei
 3. cd /etc/skel/
@@ -37,6 +44,7 @@ fg、bg、jobs、&、ctrl + z都是跟系统任务有关的，虽然现在基本
 6. cp .bashrc /home/liuwei/
 
 ### 服务器问题
+
 问题：
 1.安装依赖包报错：Fatal error: Allowed memory size of 2147483648 bytes exhausted (tried to allocate 67108864 bytes) in phar:///usr/local/bin/composer/src/Composer/DependencyResolver/Solver.php on line 223
 解决：
@@ -44,6 +52,7 @@ fg、bg、jobs、&、ctrl + z都是跟系统任务有关的，虽然现在基本
 php -d memory_limit=3G /usr/local/bin/composer require --dev zircote/swagger-php -vvv
 
 ### iotop
+
 哪个进程产生了 IO，数据读取速度等信息，这个时候就需要 iotop 这个工具了;
 参数说明：
 -o：只显示正在产生 I/O 的进程或线程；
@@ -61,15 +70,19 @@ php -d memory_limit=3G /usr/local/bin/composer require --dev zircote/swagger-php
 -qqq：将永远不显示 I/O 汇总；
 
 ### service --status-all
+
 查看所有服务当前的运行状态。将按照字母的顺序运行所有的 init 脚本。
 
 ### chkconfig --list
+
 显示所有运行级系统服务的运行状态信息（on或off）。如果指定了name，那么只显示指定的服务在不同运行级的状态。
 
 ### initctl list
+
 initctl 是守护进程控制工具，管理员可以与 Upstart 守护进程进行通信和交互。
 
 ### free
+
 用于显示内存状态，会显示内存的使用情况，实体内存，虚拟交换内存，共享内存，以及系统核心使用的缓冲区等等；
 语法：free [-bkmotV] [-s <间隔秒数>]
 参数：
@@ -82,15 +95,18 @@ initctl 是守护进程控制工具，管理员可以与 Upstart 守护进程进
 -s <间隔秒速>：将以动态的形式持续观察内存使用情况；
 
 ### 两个加密服务器之间传输文件，报错：ssh: connect to host 12.2.2.2 port 3222: Connection timed out，lost connection
+
 解决方案：
 保证两个服务器的文件权限
 chmod 600 authorized_keys
 chmod 700 ~/.ssh
 
 ### rsync
+
 rsync -azP -v -e 'ssh -p 123' /a/b/ user1@111.22.22.33:/c/d/
 
 ### >，<，>>
+
 ```
 >：重定向输出
 <：重定向输入
@@ -98,6 +114,7 @@ rsync -azP -v -e 'ssh -p 123' /a/b/ user1@111.22.22.33:/c/d/
 ```
 
 ### base常用
+
 ```
 ctrl-w：删除你键入的最后一个单词；
 ctrl-u：可以删除行内光标所在位置之前的内容；
@@ -109,6 +126,7 @@ ctrl-l：清屏
 ```
 
 ### ~/.ssh/config优化，防止特定网络环境下连接断开、压缩数据、多通道等选项
+
 ```
 TCPKeepAlive=yes
 ServerAliveInterval=15
@@ -120,7 +138,33 @@ ControlPersist yes
 ```
 
 ### proc，调试正在出现的问题的时候有时会效果惊人
+
 ```
 /proc/cpuinfo，/proc/meminfo，/proc/cmdline，/proc/xxx/cwd，/proc/xxx/exe，/proc/xxx/fd/，/proc/xxx/smaps
 （这里的 xxx 表示进程的 id 或 pid）
+```
+
+### 安装cairosvg报错：src/_imagingtk.c:15:20: 致命错误：Python.h：没有那个文件或目录
+
+```
+安装：yum install python3-devel
+```
+
+### 添加交换分区
+
+```
+1、free -h                   #查看swap的大小
+2、dd if=/dev/zero of=/var/swap bs=1024 count=1024000         #使用dd命令创建一个/var/swap文件，大小为1G
+3、mkswap  /var/swap                #将文件转换为swap格式
+4、swapon /var/swap                #挂载并激活swap分区
+5、swapon -s                  #查看当前系统中所有激活的swap分区
+6、free -h                  #发现swap已经增大了1G
+7、echo '/var/swap  swap  swap  defaults        0 0' >>/etc/fstab && mount -a #永久挂载
+8、swapoff /var/swap                #卸载刚才我们新增的swap分区
+```
+
+### shell脚本，在同步任务中可以执行，在异步任务中无法执行
+
+```
+在shell脚本的首行，增加内容：source ~/.bashrc;
 ```
