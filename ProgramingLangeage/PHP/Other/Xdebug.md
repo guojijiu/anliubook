@@ -11,16 +11,26 @@
 1. 到[xdebug官网](http://www.xdebug.org/wizard.php)，复制phpinfo()里面的信息，获取对应的xdebug版本进行下载已经按照说明进行安装；
 2. 安装完成后，进入/etc/php.ini文件，shift+G，到末尾，添加如下内容
 ```
+windows，php7.4版本
 [xdebug]
-xdebug.remote_enable =1
-xdebug.remote_handler = dbgp
-xdebug.remote_host = 192.168.2.100   //注意这里是，客户端的ip<即IDE的机器的ip,不是你的web server>
-xdebug.remote_mode = req
-xdebug.remote_port = 9009   //注意这里是，客户端的端口<即IDE的机器的ip,不是你的web server>
-xdebug.idekey = PHPSTORM
+zend_extension = php_xdebug.dll
 xdebug.remote_autostart = 1
-#可配可不配
-#xdebug.remote_connect_back = On           //如果开启此，将忽略下面的 xdebug.remote_host 的参数。 <一台webserver有多个开发者的工作目录的时候使用，如：p1.xx.com,p2.xx.com,p3.xx.com 。。。等。 >
+xdebug.remote_enable = 1
+xdebug.remote_host = "127.0.0.1"
+xdebug.remote_port = 9003
+xdebug.remote_handler = dbgp
+xdebug.start_with_request = yes
+xdebug.idekey = PHPSTORM
+
+mac，php7.4版本
+[xdebug]
+zend_extension="xdebug.so"
+xdebug.remote_handler = dbgp
+xdebug.idekey = PHPSTORM
+xdebug.start_with_request=yes
+xdebug.mode=debug
+xdebug.client_host=127.0.0.1
+xdebug.client_port=9003
 ```
 3. 配置完成后保存，可以用***php -m*** 查看安装好的xdebug，如果要在phpinfo中看到，需要***重启php-fpm***
 

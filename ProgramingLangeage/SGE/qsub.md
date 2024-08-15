@@ -20,6 +20,7 @@ qstat -Q
 ```
 解决办法：使用root重启sge
 /opt/sge/default/common/sgemaster restart
+qmod -c all.q
 状态说明：
 a： 负载超限了，开启警报alarm。
 A： 超限暂替，开启警报Alarm。

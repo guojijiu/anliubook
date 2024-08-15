@@ -20,7 +20,7 @@ rpm -e --nodeps    价格 --modeps 即可
 
 1. 前置工作
 yum -y install epel-release yum-utils
-yum config-manager --set-enabled PowerTools
+yum config-manager --enable PowerTools
 yum -y install gcc gcc-c++ make autoconf bzip2 bzip2-devel libpng libpng-devel freetype-devel gmp-devel readline-devel curl-devel libxml2-devel libjpeg-devel bison openssl-devel uw-imap-devel libc-client sqlite-devel libicu-devel libedit-devel libxslt-devel oniguruma oniguruma-devel
 
 2. 下载php安装包，从本地下载好后，上传到服务器

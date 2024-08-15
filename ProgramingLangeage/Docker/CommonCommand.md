@@ -89,6 +89,6 @@ docker exec -it <容器ID> /bin/bash
 $ date
 $ exit
 2. 用宿主机的时区替换容器的时区：
-docker cp /etc/localtime <容器ID>:/etc/localtime
+docker cp /usr/share/zoneinfo/Asia/Shanghai <容器ID>:/etc/localtime
 3. 可以再到容器里确认下
 ```

@@ -100,6 +100,7 @@ initctl 是守护进程控制工具，管理员可以与 Upstart 守护进程进
 保证两个服务器的文件权限
 chmod 600 authorized_keys
 chmod 700 ~/.ssh
+关闭selinux
 
 ### rsync
 
@@ -150,6 +151,12 @@ ControlPersist yes
 安装：yum install python3-devel
 ```
 
+### linux按照cairosvg报错Command "python setup.py egg_info" failed with error co
+
+```
+pip3 install --upgrade pip
+```
+
 ### 添加交换分区
 
 ```
@@ -167,4 +174,12 @@ ControlPersist yes
 
 ```
 在shell脚本的首行，增加内容：source ~/.bashrc;
+```
+
+### linux pecl 报错Connection to `ssl://pecl.php.net:443' failed:
+
+1. php -r "print_r(openssl_get_cert_locations());"
+查看cert.pem的路径，
+2. 下载wget http://curl.haxx.se/ca/cacert.pem
+3. 将证书替换到cert.pem的路径
 ```
